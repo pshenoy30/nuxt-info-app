@@ -1,19 +1,2 @@
-# How to run this app
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-Start the dev server:
-
-```bash
-npm run dev
-```
-
-Start the mock API server:
-
-```bash
-npm run mock-api
-```
+# Nuxt Information App
+This application gives you all the information needed to implement a nuxt application. Clicking on the categories takes you to the various categories related  to the Nuxt framework.

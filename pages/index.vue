@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { getPostsUrl } from '../data/posts'
-import type { Post } from '../data/posts'
+import { useServerRoute } from '~/compostables/useServerRoute';
+import type { Post } from '~/data/posts';
 
-const {data: posts} = await useFetch<Post []>(getPostsUrl());
+
+const {data: posts} = await useServerRoute<Post []>();
 
 
 </script>

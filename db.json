@@ -480,5 +480,25 @@
       "name": "Nuxt Content",
       "count": 2
     }
+  ],
+  "comments": [
+    {
+      "commenter": "test",
+      "content": "test",
+      "postId": "nuxt-page",
+      "id": 1
+    },
+    {
+      "commenter": "test",
+      "content": "test",
+      "postId": "nuxt-page",
+      "id": 2
+    },
+    {
+      "commenter": "John",
+      "content": "Love this",
+      "postId": "nuxt-page",
+      "id": 3
+    }
   ]
 }

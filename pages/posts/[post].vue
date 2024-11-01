@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import type { PostDetails } from '~/data/posts';
-import  {getPostDetailsUrl} from '../../data/posts';
 import { useParam } from '~/compostables/useParam';
 import { useCategoryState } from '~/compostables/useCategoryState';
+import { useServerRoute } from '~/compostables/useServerRoute';
+import type { PostDetails } from '~/data/posts';
 definePageMeta({
   layout: 'breadcrumb'
 })
-const postSlug = useParam('post');
 
-const { data: post} = await useFetch< PostDetails>(getPostDetailsUrl(postSlug))
+
+const { data: post} = await useServerRoute<PostDetails>()
+
 const categoryState = useCategoryState();
+
 if (post.value){
     categoryState.value = {
         name: post.value.category.name,
@@ -25,6 +27,11 @@ if (post.value){
                 <CategoryLink :category="post.category" />
             </h1>
             <RenderMarkdown :source="post.content" />
+            <ClientOnly>
+                <Transition>
+                    <CommentSection :post-id="post.id" />
+                </Transition>
+            </ClientOnly>
         </template>
     </main>
 </template>

@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { CategoryDetails } from '~/data/categories';
-import { getCategoryDetailsUrl } from '~/data/categories';
-import { useParam } from '~/compostables/useParam';
 import { useCategoryState } from '~/compostables/useCategoryState';
-const categorySlug = useParam('category');
+import { useServerRoute } from '~/compostables/useServerRoute';
+import type { CategoryDetails } from '~/data/categories';
 
-const {data: category} = await useFetch<CategoryDetails>(getCategoryDetailsUrl(categorySlug))
+const { data: category } = await useServerRoute<CategoryDetails>()
 
 const categoryState = useCategoryState();
 
